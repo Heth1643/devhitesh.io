@@ -1,0 +1,387 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hitesh Thakor Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a bento grid of flat color tiles with thick outlines and hard offset shadows.
+     Colors carry meaning: each skill group keeps its own color, tiles reuse them. */
+  :root {
+    --bg: #EEF0F6;
+    --paper: #FFFFFF;
+    --ink: #111111;
+    --muted: #454A58;
+    --y: #FFD23F;
+    --b: #3A56F5;
+    --c: #FF6F59;
+    --m: #5FE0AE;
+    --on-y: #111111;
+    --on-b: #FFFFFF;
+    --on-c: #111111;
+    --on-m: #111111;
+    --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+    --font-body: "DM Sans", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101114;
+      --paper: #1A1C22;
+      --ink: #F2F2EE;
+      --muted: #A9AFBF;
+      --y: #F5C518;
+      --b: #5B73FF;
+      --c: #FF7A66;
+      --m: #4FD1A1;
+      --on-b: #0B0D14;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101114;
+    --paper: #1A1C22;
+    --ink: #F2F2EE;
+    --muted: #A9AFBF;
+    --y: #F5C518;
+    --b: #5B73FF;
+    --c: #FF7A66;
+    --m: #4FD1A1;
+    --on-b: #0B0D14;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  ul, dl { margin: 0; padding: 0; list-style: none; }
+  a { color: inherit; text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  .y { background: var(--y); color: var(--on-y); }
+  .b { background: var(--b); color: var(--on-b); }
+  .c { background: var(--c); color: var(--on-c); }
+  .m { background: var(--m); color: var(--on-m); }
+
+  /* Top bar */
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 22px 12px; }
+  .mark { font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-decoration: none; }
+  .nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .pill { font: inherit; font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 4px 14px; text-decoration: none; cursor: pointer; }
+  .pill:hover { background: var(--y); color: var(--on-y); }
+
+  /* Bento grid */
+  .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; padding-block: 12px 40px; padding-right: 6px; }
+  .s12 { grid-column: span 12; }
+  .s8 { grid-column: span 8; }
+  .s6 { grid-column: span 6; }
+  .s4 { grid-column: span 4; }
+  .s3 { grid-column: span 3; }
+  .tile { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; padding: 28px; box-shadow: 6px 6px 0 var(--ink); min-width: 0; scroll-margin-top: 16px; }
+  .tile.y { background: var(--y); }
+  .tile.b { background: var(--b); }
+  .tile.c { background: var(--c); }
+  .tile.m { background: var(--m); }
+  .label { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 2px solid currentColor; border-radius: 999px; padding: 2px 12px; margin-bottom: 18px; }
+
+  /* Hero */
+  .hero { display: flex; flex-direction: column; align-items: flex-start; }
+  h1 { font-size: clamp(2.4rem, 7.4vw, 5rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.035em; margin-bottom: 22px; }
+  h1 span { display: block; }
+  .lede { font-size: 1.2rem; line-height: 1.5; max-width: 32ch; margin-bottom: 28px; font-weight: 500; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { display: inline-block; font-weight: 600; font-size: 0.95rem; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 10px; padding: 10px 18px; text-decoration: none; box-shadow: 3px 3px 0 var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--bg); }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+
+  .stat { display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+  .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(5rem, 14vw, 8.5rem); line-height: 0.9; letter-spacing: -0.05em; }
+  .stat p { font-weight: 500; max-width: 22ch; }
+
+  .now h2 { font-size: 1.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+  .now .period { font-family: var(--font-mono); font-size: 0.85rem; margin-top: 14px; }
+
+  .about p.big-text { font-size: 1.15rem; line-height: 1.65; }
+
+  /* What I do */
+  .do h3 { font-size: 1rem; font-weight: 800; line-height: 1.25; margin-bottom: 10px; }
+  .do p { color: var(--muted); font-size: 0.95rem; }
+
+  /* Experience */
+  .role h2 { font-size: 1.35rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+  .role .org { font-weight: 600; margin: 8px 0 2px; }
+  .role .period { font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 18px; }
+  .points { display: grid; gap: 10px; }
+  .points li { position: relative; padding-left: 20px; }
+  .points li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; background: currentColor; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+  .skills h3 { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500; border: 2px solid var(--ink); border-radius: 8px; padding: 4px 12px; }
+
+  /* Education */
+  .edu { display: grid; gap: 22px; }
+  .edu h3 { font-size: 1rem; font-weight: 800; line-height: 1.3; margin: 4px 0; }
+  .edu .period { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+  .edu .org { font-weight: 500; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: var(--bg); box-shadow: 6px 6px 0 var(--y); }
+  .contact h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 20px; }
+  .row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; align-items: center; gap: 8px 20px; padding-block: 14px; border-top: 2px solid var(--bg); }
+  .row dt { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .row dd { margin: 0; font-size: 1.15rem; font-weight: 500; overflow-wrap: anywhere; }
+  .copy { font: inherit; font-family: var(--font-mono); font-size: 0.8rem; color: var(--bg); background: transparent; border: 2px solid var(--bg); border-radius: 8px; padding: 5px 14px; min-width: 84px; cursor: pointer; }
+  .copy:hover { background: var(--y); border-color: var(--y); color: #111111; }
+
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 8px 40px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .s8, .s4, .s6 { grid-column: span 12; }
+    .s3 { grid-column: span 6; }
+  }
+  @media (max-width: 560px) {
+    .s3 { grid-column: span 12; }
+    .skills { grid-template-columns: minmax(0, 1fr); }
+    .tile { padding: 22px 20px; }
+    .row { grid-template-columns: minmax(0, 1fr) auto; }
+    .row dt { grid-column: 1 / -1; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .btn { transition: transform 0.12s, box-shadow 0.12s; }
+    .pill, .copy { transition: background-color 0.12s, color 0.12s, border-color 0.12s; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">HT.</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="pill" href="#about">About</a>
+      <a class="pill" href="#experience">Experience</a>
+      <a class="pill" href="#skills">Skills</a>
+      <a class="pill" href="#education">Education</a>
+      <a class="pill" href="#contact">Contact</a>
+      <button type="button" class="pill" id="theme-toggle" aria-label="Switch between light and dark theme">Light / Dark</button>
+    </nav>
+  </header>
+
+  <main id="top" class="bento">
+    <section class="tile y hero s8">
+      <span class="label">Web Developer</span>
+      <h1><span>Hitesh</span><span>Thakor</span></h1>
+      <p class="lede">I build efficient, scalable web applications with MVC .NET Core and SQL databases.</p>
+      <div class="actions">
+        <a class="btn solid" href="#contact">Get in touch</a>
+        <a class="btn" href="#experience">See experience</a>
+      </div>
+    </section>
+
+    <section class="tile m stat s4">
+      <span class="big" id="exp-y">3</span>
+      <p><span id="exp-tail">years</span> building web applications with .NET Core and SQL</p>
+    </section>
+
+    <section class="tile about s8" id="about">
+      <span class="label">About</span>
+      <p class="big-text">I am a results-driven software developer who focuses on efficient, scalable applications with seamless integration and optimized data management. I enjoy continuous learning and problem-solving, and I am dedicated to delivering high-quality solutions that meet business objectives and exceed client expectations.</p>
+    </section>
+
+    <section class="tile b now s4">
+      <span class="label">Currently</span>
+      <h2>Associate Software Engineer</h2>
+      <p>Squad Technology Private Limited</p>
+      <p class="period">Jun 2024 – present</p>
+    </section>
+
+    <section class="tile do s3" id="work">
+      <span class="label y">Build</span>
+      <h3>Web applications</h3>
+      <p>Dynamic, responsive applications on .NET Core and ASP.NET MVC.</p>
+    </section>
+    <section class="tile do s3">
+      <span class="label m">Query</span>
+      <h3>Data and queries</h3>
+      <p>SQL Server databases managed and queried through LINQ.</p>
+    </section>
+    <section class="tile do s3">
+      <span class="label c">Connect</span>
+      <h3>RESTful APIs</h3>
+      <p>APIs developed and integrated to extend what an application can do.</p>
+    </section>
+    <section class="tile do s3">
+      <span class="label b">Publish</span>
+      <h3>Umbraco CMS sites</h3>
+      <p>Interactive interfaces with JavaScript and jQuery, checked across browsers and on mobile.</p>
+    </section>
+
+    <section class="tile c role s6" id="experience">
+      <span class="label">Experience</span>
+      <h2>Associate Software Engineer</h2>
+      <p class="org">Squad Technology Private Limited</p>
+      <p class="period">Jun 2024 – present</p>
+      <ul class="points">
+        <li>Develop and maintain web applications with .NET Core, ASP.NET MVC, SQL Server, LINQ, RESTful APIs, JavaScript, jQuery and Umbraco CMS.</li>
+        <li>Work with a team of developers to design and build responsive, high-performance web interfaces.</li>
+        <li>Deliver scalable solutions that meet business requirements, following best practices and code standards.</li>
+        <li>Optimize applications for better functionality and user experience.</li>
+        <li>Troubleshoot and resolve issues to keep applications running smoothly.</li>
+      </ul>
+    </section>
+
+    <section class="tile role s6">
+      <span class="label">Earlier</span>
+      <h2>Web Developer Intern</h2>
+      <p class="org">Squad Technology Private Limited</p>
+      <p class="period">Dec 2023 – Jun 2024</p>
+      <ul class="points">
+        <li>Contributed to the design, development and functionality of diverse web projects.</li>
+        <li>Built dynamic web solutions with .NET Core and ASP.NET MVC alongside a team of developers.</li>
+        <li>Managed and queried databases with SQL Server and LINQ.</li>
+        <li>Developed and integrated RESTful APIs.</li>
+        <li>Built interactive interfaces with JavaScript, jQuery and Umbraco CMS, with cross-browser compatibility and mobile responsiveness.</li>
+      </ul>
+    </section>
+
+    <section class="tile s8" id="skills">
+      <span class="label">Skills</span>
+      <div class="skills">
+        <div>
+          <h3>Back end</h3>
+          <ul class="chips"><li class="chip y">.NET Core</li><li class="chip y">ASP.NET MVC</li><li class="chip y">REST APIs</li></ul>
+        </div>
+        <div>
+          <h3>Data</h3>
+          <ul class="chips"><li class="chip m">SQL databases</li><li class="chip m">SQL Server</li><li class="chip m">LINQ</li></ul>
+        </div>
+        <div>
+          <h3>CMS</h3>
+          <ul class="chips"><li class="chip c">Umbraco CMS</li></ul>
+        </div>
+        <div>
+          <h3>Front end</h3>
+          <ul class="chips"><li class="chip b">JavaScript</li><li class="chip b">jQuery</li><li class="chip b">Bootstrap</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile s4" id="education">
+      <span class="label">Education</span>
+      <div class="edu">
+        <div>
+          <p class="period">2021 – 2023</p>
+          <h3>Master of Computer Application</h3>
+          <p class="org">Sardar Patel University</p>
+        </div>
+        <div>
+          <p class="period">2018 – 2021</p>
+          <h3>Bachelor of Science, Computer Science</h3>
+          <p class="org">Sardar Patel University</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile contact s12" id="contact">
+      <h2>Let's work together.</h2>
+      <dl>
+        <div class="row">
+          <dt>Email</dt>
+          <dd id="c-email">hetul1643@gmail.com</dd>
+          <button type="button" class="copy" data-copy="c-email">Copy</button>
+        </div>
+        <div class="row">
+          <dt>Phone</dt>
+          <dd id="c-phone">+91 9601582103</dd>
+          <button type="button" class="copy" data-copy="c-phone">Copy</button>
+        </div>
+        <div class="row">
+          <dt>LinkedIn</dt>
+          <dd id="c-linkedin">hiteshthakor</dd>
+          <button type="button" class="copy" data-copy="c-linkedin">Copy</button>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Hitesh Thakor</span>
+    <span>Web Developer · .NET Core</span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    function currentTheme() {
+      var t = root.getAttribute('data-theme');
+      if (t) return t;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    try {
+      var saved = localStorage.getItem('portfolio-bento-theme');
+      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    } catch (e) {}
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('portfolio-bento-theme', next); } catch (e) {}
+    });
+
+    function flash(btn, label) {
+      var original = btn.getAttribute('data-label') || btn.textContent;
+      btn.setAttribute('data-label', original);
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = original; }, 1600);
+    }
+    function selectText(el) {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.getAttribute('data-copy'));
+        var text = el.textContent.trim();
+        var done = function () { flash(btn, 'Copied'); };
+        var fallback = function () { selectText(el); flash(btn, 'Selected'); };
+        try {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } catch (e) { fallback(); }
+      });
+    });
+  })();
+</script>
+
+<script>
+  /* Experience counter: counts from the joining date, 1 Jul 2023. */
+  (function () {
+    var start = new Date(2023, 6, 1), now = new Date();
+    var months = (now.getFullYear() - start.getFullYear()) * 12 + now.getMonth() - start.getMonth();
+    if (now.getDate() < start.getDate()) months--;
+    if (months < 0) return;
+    var y = Math.floor(months / 12), m = months % 12;
+    var yearWord = y === 1 ? 'year' : 'years';
+    document.querySelectorAll('.js-exp').forEach(function (el) {
+      el.textContent = y + ' ' + yearWord;
+    });
+    var big = document.getElementById('exp-y'), tail = document.getElementById('exp-tail');
+    if (big) big.textContent = y;
+    if (tail) tail.textContent = yearWord;
+  })();
+</script>
+
+</body></html>
